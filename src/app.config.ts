@@ -5,6 +5,7 @@ import basicAuth from "express-basic-auth";
 
 import { PropHuntRoom } from "./rooms/prophuntRoom";
 import { ValoriaRoom } from "./rooms/valoriaRoom";
+import { FarmerFootballRoom } from "./rooms/FarmerFootball";
 
 import { connect } from "./db/client";
 
@@ -18,6 +19,10 @@ const basicAuthMiddleware = basicAuth({
   challenge: true,
 });
 
+/* const DefaultRoomOptions = {
+  maxClients: 4,
+}; */
+
 export default config({
   initializeGameServer: (gameServer) => {
     gameServer.define("local", BaseRoom);
@@ -28,6 +33,7 @@ export default config({
 
     // Community Rooms
     gameServer.define("poker-house", BaseRoom);
+    gameServer.define("farmer_football", FarmerFootballRoom);
   },
 
   initializeExpress: (app) => {

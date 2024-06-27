@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "tsx watch src/index.ts",
-    "loadtest": "tsx loadtest/example.ts --room my_room --numClients 2",
+    "loadtest": "tsx loadtest/stress.ts --room sunflorea_oasis --numClients 100",
     "build": "npm run clean && tsc",
     "clean": "rimraf build",
     "test": "mocha -r tsx test/**_test.ts --exit --timeout 15000"
